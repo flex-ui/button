@@ -1,149 +1,182 @@
 @import "bower_components/flex-ui-bootstrap/bootstrap";
 
+@include keyframes(progress) {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: 50px 50px;
+	}
+}
+
+// .button
 .button {
-  background: $color-primary;
-  border: 1px solid transparent;
-  border-radius: $base-border-radius;
-  vertical-align: middle;
-  box-sizing: border-box;
-  display: inline-block;
-  text-decoration: none;
-  font-size: rem(13px);
-  white-space: nowrap;
-  text-align: center;
-  line-height: 28px;
-  margin-bottom: 0;
-  padding: 0 12px;
-  cursor: pointer;
-  color: white;
-  @include user-select(none);
+	border-radius: $base-border-radius;
+	border: 1px solid transparent;
+	background: $color-primary;
+	@include user-select(none);
+	vertical-align: middle;
+	box-sizing: border-box;
+	display: inline-block;
+	text-decoration: none;
+	font-size: rem(13px);
+	white-space: nowrap;
+	text-align: center;
+	line-height: 28px;
+	margin-bottom: 0;
+	padding: 0 12px;
+	cursor: pointer;
+	color: white;
 
-  &:not(.button--disabled):not([disabled]):hover {
-    background: lighten($color-primary, 10%);
-  }
+	&:hover {
+		background: lighten($color-primary, 10%);
+	}
 
-  &__icon {
-    position: relative;
-    margin-right: 5px;
-    top: 1px;
-  }
+	// .button__icon
+	&__icon {
+		position: relative;
+		margin-right: 5px;
+		top: 1px;
+	}
 
-  &--primary {
-    background: $color-primary;
-    border: 1px solid transparent;
-    color: white;
+	// .button--progress
+	&--progress {
+		position: relative;
 
-    &:not(.button--disabled):not([disabled]):hover {
-      background: lighten($color-primary, 10%);
-    }
-  }
+		&:after {
+			background-image: linear-gradient(-45deg, rgba(white, 0.2) 25%, transparent 25%, transparent 50%, rgba(white, 0.2) 50%, rgba(white, 0.2) 75%, transparent 75%, transparent);
+			@include animation(progress 2s linear infinite);
+			background-size: 50px 50px;
+			position: absolute;
+			content: "";
+			z-index: 1;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			top: 0;
+		}
+	}
 
-  &--success {
-    background: $color-success;
-    border: 1px solid transparent;
-    color: white;
+	// .button--primary
+	&--primary {
+		border: 1px solid transparent;
+		background: $color-primary;
+		color: white;
 
-    &:not(.button--disabled):not([disabled]):hover {
-      background: lighten($color-success, 10%);
-    }
-  }
+		&:hover {
+			background: lighten($color-primary, 10%);
+		}
+	}
 
-  &--danger {
-    background: $color-danger;
-    border: 1px solid transparent;
-    color: white;
+	// .button--success
+	&--success {
+		border: 1px solid transparent;
+		background: $color-success;
+		color: white;
 
-    &:not(.button--disabled):not([disabled]):hover {
-      background: lighten($color-danger, 10%);
-    }
-  }
+		&:hover {
+			background: lighten($color-success, 10%);
+		}
+	}
 
-  &--invert {
-    border: 1px solid transparent;
-    background: white none;
+	// .button--danger
+	&--danger {
+		border: 1px solid transparent;
+		background: $color-danger;
+		color: white;
 
-    &:not(.button--disabled):not([disabled]):hover {
-      background: $color-primary;
-      color: white;
-    }
-  }
+		&:hover {
+			background: lighten($color-danger, 10%);
+		}
+	}
 
-  &--mute {
-    background: $color-mute;
-    border: 1px solid transparent;
+	// .button--invert
+	&--invert {
+		border: 1px solid transparent;
+		background: white none;
 
+		&:hover {
+			background: $color-primary;
+			color: white;
+		}
+	}
+	
+	// .button--mute
+	&--mute {
+		border: 1px solid transparent;
+		background: $color-mute;
 
-    &:not(.button--disabled):not([disabled]):hover {
-      background: lighten($color-mute, 10%);
-    }
-  }
+		&:hover {
+			background: lighten($color-mute, 10%);
+		}
+	}
 
-  &--outline {
-    border: 1px solid $color-outline;
-    color: $color-outline;
-    background: none;
+	// .button--outline
+	&--outline {
+		border: 1px solid $color-outline;
+		color: $color-outline;
+		background: none;
 
-    &:not(.button--disabled):not([disabled]):hover {
-      background: lighten($color-outline, 10%);
-      color: white;
-    }
-  }
+		&:hover {
+			background: lighten($color-outline, 10%);
+			color: white;
+		}
+	}
 
-  &--disabled, &[disabled] {
-    cursor: default;
-    opacity: 0.8;
-  }
+	// .button--disabled
+	&--disabled, &[disabled] {
+		cursor: default;
+		opacity: 0.8;
+	}
 
-  &--large {
-    font-size: rem(16px);
-    line-height: 35px;
-    padding: 0 20px;
+	// .button--large
+	&--large {
+		font-size: rem(16px);
+		line-height: 35px;
+		padding: 0 1.5em;
+	}
 
-    .button__icon {
-      font-size: rem(12px);
-      top: -1px;
-    }
-  }
+	// .button--medium
+	&--medium {
+		font-size: rem(13px);
+		line-height: 28px;
+		padding: 0 1em;
+	}
 
-  &--medium {
-    font-size: rem(13px);
-    line-height: 28px;
-    padding: 0 15px;
-  }
+	// .button--small
+	&--small {
+		font-size: rem(11px);
+		line-height: 23px;
+		padding: 0 0.8em;
+	}
 
-  &--small {
-    font-size: rem(11px);
-    line-height: 23px;
-    padding: 0 12px;
-  }
+	// .button--fixed
+	&--fixed {
+		min-width: 100px;
+		padding-right: 0;
+		padding-left: 0;
+	}
 
-  &--fixed {
-    min-width: 100px;
-    padding-left: 0;
-    padding-right: 0;
-  }
+	// .button--wide
+	&--wide {
+		padding-right: 2em;
+		padding-left: 2em;
+	}
 
-  &--short {
-    min-width: 80px;
-    padding-left: 0;
-    padding-right: 0;
-  }
+	// .button--fluid
+	&--fluid {
+		padding-right: 0;
+		padding-left: 0;
+		width: 100%;
+	}
 
-  &--wide {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  &--fluid {
-    padding-right: 0;
-    padding-left: 0;
-    width: 100%;
-  }
-
-  &--fluid {
-    width: 100%;
-    margin-right: 1em;
-    margin-left: 1em;
-  }
-
+	// .button--block
+	&--block {
+		margin-right: 1em;
+		margin-left: 1em;
+		padding-right: 0;
+		padding-left: 0;
+		width: 100%;
+	}
 }
