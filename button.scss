@@ -1,17 +1,7 @@
-@import "bower_components/flex-ui-bootstrap/bootstrap";
-
-@include keyframes(progress) {
-	from {
-		background-position: 0 0;
-	}
-
-	to {
-		background-position: 50px 50px;
-	}
-}
+@import "./bower_components/flex-ui-bootstrap/bootstrap";
 
 // .button
-.button {
+@include b(button) {
 	border-radius: $base-border-radius;
 	border: 1px solid transparent;
 	background: $color-primary;
@@ -29,150 +19,136 @@
 	cursor: pointer;
 	color: white;
 
-	&:hover {
+	// .button:hover
+	@include hover {
 		background: lighten($color-primary, 10%);
 	}
 
 	// .button__icon
-	&__icon {
+	@include e(icon) {
 		position: relative;
 		margin-right: 5px;
 		top: 1px;
 	}
 
-	// .button--progress
-	&--progress {
-		position: relative;
-
-		&:after {
-			background-image: linear-gradient(-45deg, rgba(white, 0.2) 25%, transparent 25%, transparent 50%, rgba(white, 0.2) 50%, rgba(white, 0.2) 75%, transparent 75%, transparent);
-			@include animation(progress 2s linear infinite);
-			background-size: 50px 50px;
-			position: absolute;
-			content: "";
-			z-index: 1;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			top: 0;
-		}
-	}
-
 	// .button--primary
-	&--primary {
+	@include m(primary) {
 		border: 1px solid transparent;
 		background: $color-primary;
 		color: white;
 
-		&:hover {
+		// .button--primary:hover
+		@include hover {
 			background: lighten($color-primary, 10%);
 		}
 	}
 
 	// .button--success
-	&--success {
+	@include m(success) {
 		border: 1px solid transparent;
 		background: $color-success;
 		color: white;
 
-		&:hover {
+		// .button--success:hover
+		@include hover {
 			background: lighten($color-success, 10%);
 		}
 	}
 
 	// .button--danger
-	&--danger {
+	@include m(danger) {
 		border: 1px solid transparent;
 		background: $color-danger;
 		color: white;
 
-		&:hover {
+		// .button--danger:hover
+		@include hover {
 			background: lighten($color-danger, 10%);
 		}
 	}
 
 	// .button--invert
-	&--invert {
+	@include m(invert) {
 		border: 1px solid transparent;
 		background: white none;
 
-		&:hover {
+		// .button--invert:hover
+		@include hover {
 			background: $color-primary;
 			color: white;
 		}
 	}
-	
-	// .button--mute
-	&--mute {
-		border: 1px solid transparent;
-		background: $color-mute;
-
-		&:hover {
-			background: lighten($color-mute, 10%);
-		}
-	}
 
 	// .button--outline
-	&--outline {
-		border: 1px solid $color-outline;
-		color: $color-outline;
+	@include m(outline) {
+		border: 1px solid $color-inverse;
+		color: $color-inverse;
 		background: none;
 
-		&:hover {
-			background: lighten($color-outline, 10%);
+		// .button--outline:hover
+		@include hover {
+			background: lighten($color-inverse, 10%);
 			color: white;
 		}
 	}
 
-	// .button--disabled
-	&--disabled, &[disabled] {
+	// .button.is-disabled
+	@include is(disabled) {
+		pointer-events: none;
 		cursor: default;
 		opacity: 0.8;
 	}
 
+	//.button[disabled]
+	@include disabled {
+		pointer-events: none;
+		cursor: default;
+		opacity: 0.8;
+	}
+	
 	// .button--large
-	&--large {
+	@include m(large) {
 		font-size: rem(16px);
 		line-height: 35px;
 		padding: 0 1.5em;
 	}
-
+	
 	// .button--medium
-	&--medium {
+	@include m(medium) {
 		font-size: rem(13px);
 		line-height: 28px;
 		padding: 0 1em;
 	}
-
+	
 	// .button--small
-	&--small {
+	@include m(small) {
 		font-size: rem(11px);
 		line-height: 23px;
 		padding: 0 0.8em;
 	}
-
+	
 	// .button--fixed
-	&--fixed {
+	@include m(fixed) {
 		min-width: 100px;
 		padding-right: 0;
 		padding-left: 0;
 	}
-
+	
 	// .button--wide
-	&--wide {
+	@include m(wide) {
 		padding-right: 2em;
 		padding-left: 2em;
 	}
-
+	
 	// .button--fluid
-	&--fluid {
+	@include m(fluid) {
 		padding-right: 0;
 		padding-left: 0;
 		width: 100%;
 	}
-
+	
 	// .button--block
-	&--block {
+	@include m(block) {
 		margin-right: 1em;
 		margin-left: 1em;
 		padding-right: 0;

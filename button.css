@@ -1,22 +1,7 @@
-@-webkit-keyframes progress {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 50px 50px; } }
-@-moz-keyframes progress {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 50px 50px; } }
-@keyframes progress {
-  from {
-    background-position: 0 0; }
-  to {
-    background-position: 50px 50px; } }
 .button {
   border-radius: 3px;
   border: 1px solid transparent;
-  background: #0e6ac7;
+  background: #28abe3;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -34,55 +19,35 @@
   cursor: pointer;
   color: white; }
   .button:hover {
-    background: #1983ef; }
+    background: #55bde9; }
   .button__icon {
     position: relative;
     margin-right: 5px;
     top: 1px; }
-  .button--progress {
-    position: relative; }
-    .button--progress:after {
-      background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
-      -webkit-animation: progress 2s linear infinite;
-      -moz-animation: progress 2s linear infinite;
-      animation: progress 2s linear infinite;
-      background-size: 50px 50px;
-      position: absolute;
-      content: "";
-      z-index: 1;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      top: 0; }
   .button--primary {
     border: 1px solid transparent;
-    background: #0e6ac7;
+    background: #28abe3;
     color: white; }
     .button--primary:hover {
-      background: #1983ef; }
+      background: #55bde9; }
   .button--success {
     border: 1px solid transparent;
-    background: #26b61b;
+    background: #1fda9a;
     color: white; }
     .button--success:hover {
-      background: #32df25; }
+      background: #47e5af; }
   .button--danger {
     border: 1px solid transparent;
-    background: #d40100;
+    background: #db3340;
     color: white; }
     .button--danger:hover {
-      background: #ff0908; }
+      background: #e35e69; }
   .button--invert {
     border: 1px solid transparent;
     background: white none; }
     .button--invert:hover {
-      background: #0e6ac7;
+      background: #28abe3;
       color: white; }
-  .button--mute {
-    border: 1px solid transparent;
-    background: #ccc; }
-    .button--mute:hover {
-      background: #e6e6e6; }
   .button--outline {
     border: 1px solid #2b3335;
     color: #2b3335;
@@ -90,7 +55,12 @@
     .button--outline:hover {
       background: #424e51;
       color: white; }
-  .button--disabled, .button[disabled] {
+  .button.is-disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.8; }
+  .button[disabled] {
+    pointer-events: none;
     cursor: default;
     opacity: 0.8; }
   .button--large {
@@ -122,5 +92,3 @@
     padding-right: 0;
     padding-left: 0;
     width: 100%; }
-
-/*# sourceMappingURL=button.css.map */
